@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://co0asmyewkug7"]
+
+[node name="Level" type="Node2D"]
+
+[node name="BADFloor" type="Panel" parent="."]
+offset_top = 560.0
+offset_right = 1154.0
+offset_bottom = 655.0
+
+[node name="BADLeftWall" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 564.0
+
+[node name="BADRightWall" type="Panel" parent="."]
+offset_left = 1113.0
+offset_right = 1153.0
+offset_bottom = 564.0
+
+[node name="HI" type="Label" parent="."]
+offset_left = 102.0
+offset_top = 87.0
+offset_right = 1047.0
+offset_bottom = 483.0
+theme_override_font_sizes/font_size = 30
+text = "YOU ARE EARLY
+
+THE GAME IS NOT FINISHED YET
+
+THERE IS NOTHING TO DO HERE :("
+horizontal_alignment = 1
+vertical_alignment = 1
