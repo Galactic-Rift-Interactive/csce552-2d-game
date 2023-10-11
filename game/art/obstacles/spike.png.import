@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lb8q4kg4wf1a"
-path="res://.godot/imported/enemyFlyingAlt_1.png-559f599b16c69b112c1b53f6332e9489.ctex"
+uid="uid://dgntvwlna588m"
+path="res://.godot/imported/spike.png-b87bd511bd29e67d686753860884fb6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/enemyFlyingAlt_1.png"
-dest_files=["res://.godot/imported/enemyFlyingAlt_1.png-559f599b16c69b112c1b53f6332e9489.ctex"]
+source_file="res://art/obstacles/spike.png"
+dest_files=["res://.godot/imported/spike.png-b87bd511bd29e67d686753860884fb6b.ctex"]
 
 [params]
 
