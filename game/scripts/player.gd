@@ -1,43 +1,32 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 signal hit 
 
 @export var speed = 500
-@export var jump_strength = 400
-var screen_size
-var screen
+@export var jump_strength = 1200
+@export var gravity = 3000
 
 func _ready():
-	screen_size = get_viewport_rect().size
-	
-func _process(delta):
-	rotation_degrees = 0
+	pass
 
-	var horizontal_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	var force = Vector2(speed * horizontal_input, 0)
-	
+func _physics_process(delta):
+	velocity.x = 0
+	if Input.is_action_pressed("move_right"):
+		velocity.x = speed
+	elif Input.is_action_pressed("move_left"):
+		velocity.x = -speed
+		
+	if Input.is_action_pressed("jump"):
+		if is_on_floor():
+			velocity.y = -jump_strength
+
 	var sprite = $AnimatedSprite2D
-
-	if force == Vector2.ZERO:
-		sleeping = true
+	if velocity.x == 0:
+		sprite.animation = "idle"
+		sprite.play()
 	else:
-		sleeping = false
-		apply_central_force(force)
+		sprite.stop()
+
+	velocity.y += gravity * delta
+	move_and_slide()
 	
-	#position = position.clamp(Vector2.ZERO, screen_size)
-
-func start(pos):
-	position = pos
-	show()
-	$CollisionShape2D.disabled = false
-
-
-func _on_test_obstacle_body_entered(body):
-	print("obstacle enter")
-	if body.get_name() == "Player":
-		print("player")
-
-
-func _on_body_entered(body):
-	print("enter")
-	pass # Replace with function body.

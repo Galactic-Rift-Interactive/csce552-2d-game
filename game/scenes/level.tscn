@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b5g5lsyijb0q5"]
+[gd_scene load_steps=18 format=3 uid="uid://b5g5lsyijb0q5"]
 
 [ext_resource type="Texture2D" uid="uid://p00q33p10f3s" path="res://art/background.png" id="1_qffqs"]
 [ext_resource type="Texture2D" uid="uid://bec3ynb5w8e4h" path="res://art/player/idle/1.png" id="1_wei8v"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://brcoesfwufabk" path="res://art/player/idle/5.png" id="5_n2apx"]
 [ext_resource type="Texture2D" uid="uid://co874m7e2i8ee" path="res://art/player/idle/6.png" id="6_uqmpw"]
 [ext_resource type="Texture2D" uid="uid://7nvbn6s7solt" path="res://art/ground.png" id="8_l1bk7"]
-[ext_resource type="Texture2D" uid="uid://dgntvwlna588m" path="res://art/obstacles/spike.png" id="10_76y7w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_beeul"]
 animations = [{
@@ -22,7 +21,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_20fp4"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45ftk"]
+friction = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skt4b"]
+size = Vector2(2272.07, 284.684)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1untl"]
+size = Vector2(24.5, 464)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kiwf"]
+size = Vector2(41, 464)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hovsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_l1bk7")
+}],
+"loop": true,
+"name": &"ground",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjcum"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -48,45 +70,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_85hri"]
-size = Vector2(84, 148)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45ftk"]
-friction = 0.5
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_skt4b"]
-size = Vector2(2272.07, 297.297)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1untl"]
-size = Vector2(24.5, 464)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kiwf"]
-size = Vector2(41, 464)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hovsp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_l1bk7")
-}],
-"loop": true,
-"name": &"ground",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeo4d"]
-size = Vector2(241, 90)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3ckwf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_76y7w")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow6s7"]
+size = Vector2(67, 119)
 
 [node name="Level" type="Node2D"]
 
@@ -95,26 +80,12 @@ position = Vector2(533, 300)
 scale = Vector2(0.555, 0.555)
 sprite_frames = SubResource("SpriteFrames_beeul")
 
-[node name="Player" type="RigidBody2D" parent="."]
-position = Vector2(530, 100.03)
-script = ExtResource("2_vfx3q")
-speed = 3000
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-scale = Vector2(0.75, 0.75)
-sprite_frames = SubResource("SpriteFrames_20fp4")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_85hri")
-
 [node name="Borders" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_45ftk")
 metadata/_edit_group_ = true
 
 [node name="Ground" type="CollisionShape2D" parent="Borders"]
-position = Vector2(546.5, 530.5)
+position = Vector2(546.5, 534)
 scale = Vector2(0.555, 0.555)
 shape = SubResource("RectangleShape2D_skt4b")
 
@@ -132,20 +103,16 @@ scale = Vector2(0.555, 0.351174)
 sprite_frames = SubResource("SpriteFrames_hovsp")
 animation = &"ground"
 
-[node name="TestObstacle" type="Area2D" parent="."]
-position = Vector2(721, 368)
-scale = Vector2(0.67, 0.67)
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(533, 100)
+script = ExtResource("2_vfx3q")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestObstacle"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_yeo4d")
-metadata/_edit_group_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_gjcum")
+animation = &"idle"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TestObstacle"]
-position = Vector2(12, 0.49999)
-scale = Vector2(1.1, 1.1125)
-sprite_frames = SubResource("SpriteFrames_3ckwf")
-
-[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="TestObstacle" to="Player" method="_on_test_obstacle_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ow6s7")
