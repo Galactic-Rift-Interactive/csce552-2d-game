@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5g5lsyijb0q5"]
+[gd_scene load_steps=20 format=3 uid="uid://b5g5lsyijb0q5"]
 
 [ext_resource type="Texture2D" uid="uid://p00q33p10f3s" path="res://art/background.png" id="1_qffqs"]
 [ext_resource type="Texture2D" uid="uid://bec3ynb5w8e4h" path="res://art/player/idle/1.png" id="1_wei8v"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://brcoesfwufabk" path="res://art/player/idle/5.png" id="5_n2apx"]
 [ext_resource type="Texture2D" uid="uid://co874m7e2i8ee" path="res://art/player/idle/6.png" id="6_uqmpw"]
 [ext_resource type="Texture2D" uid="uid://7nvbn6s7solt" path="res://art/ground.png" id="8_l1bk7"]
+[ext_resource type="Script" path="res://scripts/obstacleSpawner.gd" id="10_jc5i5"]
+[ext_resource type="PackedScene" uid="uid://o8778phqp60m" path="res://scenes/obstacle.tscn" id="11_cvnrv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_beeul"]
 animations = [{
@@ -21,28 +23,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45ftk"]
-friction = 0.5
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_skt4b"]
-size = Vector2(2272.07, 284.684)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1untl"]
-size = Vector2(24.5, 464)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kiwf"]
-size = Vector2(41, 464)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hovsp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_l1bk7")
-}],
-"loop": true,
-"name": &"ground",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow6s7"]
+size = Vector2(67, 119)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjcum"]
 animations = [{
@@ -70,8 +52,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow6s7"]
-size = Vector2(67, 119)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45ftk"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skt4b"]
+size = Vector2(2272.07, 284.684)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1untl"]
+size = Vector2(24.5, 464)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kiwf"]
+size = Vector2(41, 464)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hovsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_l1bk7")
+}],
+"loop": true,
+"name": &"ground",
+"speed": 5.0
+}]
 
 [node name="Level" type="Node2D"]
 
@@ -79,6 +81,26 @@ size = Vector2(67, 119)
 position = Vector2(533, 300)
 scale = Vector2(0.555, 0.555)
 sprite_frames = SubResource("SpriteFrames_beeul")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(533, 100)
+script = ExtResource("2_vfx3q")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ow6s7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_gjcum")
+animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_ow6s7")
 
 [node name="Borders" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_45ftk")
@@ -103,16 +125,21 @@ scale = Vector2(0.555, 0.351174)
 sprite_frames = SubResource("SpriteFrames_hovsp")
 animation = &"ground"
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(533, 100)
-script = ExtResource("2_vfx3q")
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+script = ExtResource("10_jc5i5")
+obstacle_scene = ExtResource("11_cvnrv")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_gjcum")
-animation = &"idle"
+[node name="BottomSpawner" type="Node2D" parent="ObstacleSpawner"]
+position = Vector2(1066, 400)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_ow6s7")
+[node name="MiddleSpawner" type="Node2D" parent="ObstacleSpawner"]
+position = Vector2(1066, 300)
+
+[node name="TopSpawner" type="Node2D" parent="ObstacleSpawner"]
+position = Vector2(1066, 200)
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="ObstacleSpawner"]
+
+[connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="ObstacleSpawner/ObstacleSpawnTimer" to="ObstacleSpawner" method="_on_obstacle_spawn_timer_timeout"]

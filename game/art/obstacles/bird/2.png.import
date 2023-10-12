@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di81uqui6g5tj"
-path="res://.godot/imported/crate_01.png-fb235ff33b9023f0039ccdb61f130c58.ctex"
+uid="uid://f4myrublkdte"
+path="res://.godot/imported/2.png-0a619e336500eb5c3c287f60528647d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/crate_01.png"
-dest_files=["res://.godot/imported/crate_01.png-fb235ff33b9023f0039ccdb61f130c58.ctex"]
+source_file="res://art/obstacles/bird/2.png"
+dest_files=["res://.godot/imported/2.png-0a619e336500eb5c3c287f60528647d2.ctex"]
 
 [params]
 

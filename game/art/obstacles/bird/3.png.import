@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgntvwlna588m"
-path="res://.godot/imported/spike.png-b87bd511bd29e67d686753860884fb6b.ctex"
+uid="uid://buafknkrdi5ga"
+path="res://.godot/imported/3.png-e058d13b029c5d1d9a9e0e6acb32e74e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/spike.png"
-dest_files=["res://.godot/imported/spike.png-b87bd511bd29e67d686753860884fb6b.ctex"]
+source_file="res://art/obstacles/bird/3.png"
+dest_files=["res://.godot/imported/3.png-e058d13b029c5d1d9a9e0e6acb32e74e.ctex"]
 
 [params]
 
