@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Title.gd" id="1_d3mvt"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_48n3n"]
-[ext_resource type="Texture2D" uid="uid://xpe1rtmmoeof" path="res://Assets/Sprites/background.png" id="2_oi5so"]
-[ext_resource type="Texture2D" uid="uid://6l4so1sv4kc7" path="res://Assets/Sprites/enemies/Bird_thing_Spritesheet.png" id="4_1051q"]
+[ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="2_oi5so"]
+[ext_resource type="Texture2D" uid="uid://bm50jcbk04lp1" path="res://Art/obstacles/bird/Bird_thing_Spritesheet.png" id="4_1051q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n7ch"]
 atlas = ExtResource("4_1051q")

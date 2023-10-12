@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://o8778phqp60m"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacle.gd" id="1_01tey"]
-[ext_resource type="Texture2D" uid="uid://br6ly3m8lnly3" path="res://Art/obstacles/bird/1.png" id="1_eh6bg"]
-[ext_resource type="Texture2D" uid="uid://bcs5f47x68htc" path="res://Art/obstacles/bird/2.png" id="2_bfwoc"]
-[ext_resource type="Texture2D" uid="uid://dbg82jhetqm8e" path="res://Art/obstacles/bird/3.png" id="3_f7eiv"]
-[ext_resource type="Texture2D" uid="uid://hgato52ftuio" path="res://Art/obstacles/bird/4.png" id="4_c451b"]
-[ext_resource type="Texture2D" uid="uid://cix4x00bkbyby" path="res://Art/obstacles/crate/1.png" id="5_mko54"]
-[ext_resource type="Texture2D" uid="uid://b8fkgt8aro3bs" path="res://Art/obstacles/spike/1.png" id="6_h7rkf"]
+[ext_resource type="Texture2D" uid="uid://c64haskx50784" path="res://Art/obstacles/bird/1.png" id="1_eh6bg"]
+[ext_resource type="Texture2D" uid="uid://dov68w537fsqj" path="res://Art/obstacles/bird/2.png" id="2_bfwoc"]
+[ext_resource type="Texture2D" uid="uid://dqrmc5j26dmad" path="res://Art/obstacles/bird/3.png" id="3_f7eiv"]
+[ext_resource type="Texture2D" uid="uid://b5j44qum62jl5" path="res://Art/obstacles/bird/4.png" id="4_c451b"]
+[ext_resource type="Texture2D" uid="uid://cjxmaq7lophjc" path="res://Art/obstacles/crate/1.png" id="5_mko54"]
+[ext_resource type="Texture2D" uid="uid://wgyqhm15ka20" path="res://Art/obstacles/spike/1.png" id="6_h7rkf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bnc0l"]
 animations = [{
