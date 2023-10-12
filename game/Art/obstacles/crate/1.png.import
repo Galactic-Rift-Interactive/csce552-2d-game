@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cix4x00bkbyby"
-path="res://.godot/imported/1.png-2f05c5613ac2a674906989f13cfd56ba.ctex"
+path="res://.godot/imported/1.png-8e862b2dc79c96b679bc88bf39391f90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/crate/1.png"
-dest_files=["res://.godot/imported/1.png-2f05c5613ac2a674906989f13cfd56ba.ctex"]
+source_file="res://Art/obstacles/crate/1.png"
+dest_files=["res://.godot/imported/1.png-8e862b2dc79c96b679bc88bf39391f90.ctex"]
 
 [params]
 

@@ -1,30 +1,30 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5g5lsyijb0q5"]
+[gd_scene load_steps=31 format=3 uid="uid://b5g5lsyijb0q5"]
 
-[ext_resource type="Texture2D" uid="uid://p00q33p10f3s" path="res://art/background.png" id="1_qffqs"]
-[ext_resource type="Texture2D" uid="uid://bec3ynb5w8e4h" path="res://art/player/idle/1.png" id="1_wei8v"]
-[ext_resource type="Texture2D" uid="uid://v5nusnsrpjio" path="res://art/player/idle/2.png" id="2_6di35"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_vfx3q"]
-[ext_resource type="Texture2D" uid="uid://cwo1sxdgd75vh" path="res://art/player/idle/3.png" id="3_rgv1y"]
-[ext_resource type="Texture2D" uid="uid://cjbbifyk6dt1o" path="res://art/player/idle/4.png" id="4_44kde"]
-[ext_resource type="Texture2D" uid="uid://brcoesfwufabk" path="res://art/player/idle/5.png" id="5_n2apx"]
-[ext_resource type="Texture2D" uid="uid://co874m7e2i8ee" path="res://art/player/idle/6.png" id="6_uqmpw"]
-[ext_resource type="Texture2D" uid="uid://7nvbn6s7solt" path="res://art/ground.png" id="8_l1bk7"]
-[ext_resource type="Script" path="res://scripts/obstacleSpawner.gd" id="10_jc5i5"]
-[ext_resource type="PackedScene" uid="uid://o8778phqp60m" path="res://scenes/obstacle.tscn" id="11_cvnrv"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_beeul"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_qffqs")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://bs8paixaar7hd" path="res://Art/background/background.png" id="1_e4s0q"]
+[ext_resource type="Texture2D" uid="uid://dh2b7w1pv30bc" path="res://Art/player/idle/1.png" id="1_wei8v"]
+[ext_resource type="Texture2D" uid="uid://ckbi1a84wfsxs" path="res://Art/player/idle/2.png" id="2_6di35"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_vfx3q"]
+[ext_resource type="Texture2D" uid="uid://ib3jccqxdhwf" path="res://Art/background/paralax_layer_0.png" id="2_w58r1"]
+[ext_resource type="Texture2D" uid="uid://cogj60011ha5l" path="res://Art/player/idle/3.png" id="3_rgv1y"]
+[ext_resource type="Texture2D" uid="uid://csrgss1wdlcla" path="res://Art/background/paralax_layer_1.png" id="3_y1cyx"]
+[ext_resource type="Texture2D" uid="uid://bcl40ugfe300i" path="res://Art/background/paralax_layer_2.png" id="4_3pnaq"]
+[ext_resource type="Texture2D" uid="uid://cifkk7yxu0nsj" path="res://Art/player/idle/4.png" id="4_44kde"]
+[ext_resource type="Texture2D" uid="uid://yhp6pc4irrr2" path="res://Art/player/idle/5.png" id="5_n2apx"]
+[ext_resource type="Texture2D" uid="uid://c13qxp708uety" path="res://Art/player/idle/6.png" id="6_uqmpw"]
+[ext_resource type="Script" path="res://Scripts/obstacleSpawner.gd" id="10_jc5i5"]
+[ext_resource type="PackedScene" uid="uid://o8778phqp60m" path="res://Scenes/obstacle.tscn" id="11_cvnrv"]
+[ext_resource type="Texture2D" uid="uid://len3cwe30jaa" path="res://Art/player/jump/1.png" id="12_xids1"]
+[ext_resource type="Texture2D" uid="uid://bgawriyv4uqe7" path="res://Art/player/jump/2.png" id="13_7gpcq"]
+[ext_resource type="Texture2D" uid="uid://deojpkdodfa05" path="res://Art/player/jump/3.png" id="14_ugukm"]
+[ext_resource type="Texture2D" uid="uid://banldyr5d0ay5" path="res://Art/player/jump/4.png" id="15_gn4ir"]
+[ext_resource type="Texture2D" uid="uid://dpobxlpt8chr0" path="res://Art/player/jump/5.png" id="16_op4x5"]
+[ext_resource type="Texture2D" uid="uid://cmxcxpi2nwigw" path="res://Art/player/run/1.png" id="17_ybvvo"]
+[ext_resource type="Texture2D" uid="uid://3s1xud4cpb3y" path="res://Art/player/run/2.png" id="18_ebt58"]
+[ext_resource type="Texture2D" uid="uid://dmpefbri5bub3" path="res://Art/player/run/3.png" id="19_832hr"]
+[ext_resource type="Texture2D" uid="uid://bw01tlos4kl7j" path="res://Art/player/run/4.png" id="20_qntvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow6s7"]
-size = Vector2(67, 119)
+size = Vector2(67, 117)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjcum"]
 animations = [{
@@ -50,7 +50,47 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_xids1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7gpcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ugukm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gn4ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_op4x5")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ybvvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ebt58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_832hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qntvn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eb4l"]
+size = Vector2(72, 120)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45ftk"]
 friction = 0.0
@@ -68,7 +108,7 @@ size = Vector2(41, 464)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_l1bk7")
+"texture": null
 }],
 "loop": true,
 "name": &"ground",
@@ -77,10 +117,31 @@ animations = [{
 
 [node name="Level" type="Node2D"]
 
-[node name="Background" type="AnimatedSprite2D" parent="."]
-position = Vector2(533, 300)
+[node name="Background" type="ParallaxBackground" parent="."]
+offset = Vector2(532, 300)
 scale = Vector2(0.555, 0.555)
-sprite_frames = SubResource("SpriteFrames_beeul")
+transform = Transform2D(0.555, 0, 0, 0.555, 532, 300)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer"]
+position = Vector2(3.6036, -1)
+texture = ExtResource("1_e4s0q")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer2"]
+texture = ExtResource("2_w58r1")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer3"]
+texture = ExtResource("3_y1cyx")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer4"]
+texture = ExtResource("4_3pnaq")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(533, 100)
@@ -88,19 +149,20 @@ script = ExtResource("2_vfx3q")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0.5, -0.5)
+position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_ow6s7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_gjcum")
-animation = &"idle"
+animation = &"run"
+frame_progress = 0.780761
 
 [node name="Area2D" type="Area2D" parent="Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_ow6s7")
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_5eb4l")
 
 [node name="Borders" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_45ftk")
@@ -134,12 +196,13 @@ metadata/_edit_group_ = true
 position = Vector2(1066, 400)
 
 [node name="MiddleSpawner" type="Node2D" parent="ObstacleSpawner"]
-position = Vector2(1066, 300)
+position = Vector2(1066, 325)
 
 [node name="TopSpawner" type="Node2D" parent="ObstacleSpawner"]
 position = Vector2(1066, 200)
 
 [node name="ObstacleSpawnTimer" type="Timer" parent="ObstacleSpawner"]
+wait_time = 2.5
 
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ObstacleSpawner/ObstacleSpawnTimer" to="ObstacleSpawner" method="_on_obstacle_spawn_timer_timeout"]

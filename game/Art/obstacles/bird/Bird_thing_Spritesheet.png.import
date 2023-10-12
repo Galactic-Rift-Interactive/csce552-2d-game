@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://yocgnubt0lfe"
-path="res://.godot/imported/Bird_thing_Spritesheet.png-29bebb18a911b652da86f091a7202d33.ctex"
+path="res://.godot/imported/Bird_thing_Spritesheet.png-ae0c98d0c2da6b9e245ec30668236f2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/bird/Bird_thing_Spritesheet.png"
-dest_files=["res://.godot/imported/Bird_thing_Spritesheet.png-29bebb18a911b652da86f091a7202d33.ctex"]
+source_file="res://Art/obstacles/bird/Bird_thing_Spritesheet.png"
+dest_files=["res://.godot/imported/Bird_thing_Spritesheet.png-ae0c98d0c2da6b9e245ec30668236f2b.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://br6ly3m8lnly3"
-path="res://.godot/imported/1.png-fcb403effd98699061ce78c39d2c5e9d.ctex"
+path="res://.godot/imported/1.png-36ab3de67a1ddc921eb17ff7fef7f8bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/bird/1.png"
-dest_files=["res://.godot/imported/1.png-fcb403effd98699061ce78c39d2c5e9d.ctex"]
+source_file="res://Art/obstacles/bird/1.png"
+dest_files=["res://.godot/imported/1.png-36ab3de67a1ddc921eb17ff7fef7f8bf.ctex"]
 
 [params]
 
