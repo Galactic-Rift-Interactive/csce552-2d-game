@@ -1,24 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1gunp1oh6jag"]
+[gd_scene load_steps=10 format=3 uid="uid://cd7eitik7uahv"]
 
-[ext_resource type="Script" path="res://Scripts/Title.gd" id="1_d3mvt"]
-[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_48n3n"]
-[ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="2_oi5so"]
-[ext_resource type="Texture2D" uid="uid://bm50jcbk04lp1" path="res://Art/obstacles/bird/Bird_thing_Spritesheet.png" id="4_1051q"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_fjtej"]
+[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_sldqi"]
+[ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="3_tir1p"]
+[ext_resource type="Texture2D" uid="uid://bm50jcbk04lp1" path="res://Art/obstacles/bird/Bird_thing_Spritesheet.png" id="4_ocmsn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n7ch"]
-atlas = ExtResource("4_1051q")
+atlas = ExtResource("4_ocmsn")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck3gw"]
-atlas = ExtResource("4_1051q")
+atlas = ExtResource("4_ocmsn")
 region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjycm"]
-atlas = ExtResource("4_1051q")
+atlas = ExtResource("4_ocmsn")
 region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htykr"]
-atlas = ExtResource("4_1051q")
+atlas = ExtResource("4_ocmsn")
 region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xvwkr"]
@@ -41,44 +41,61 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Title" type="Node2D"]
-script = ExtResource("1_d3mvt")
+[node name="game_over" type="Node2D"]
+script = ExtResource("1_fjtej")
 
 [node name="Play" type="Button" parent="."]
 offset_left = 397.0
-offset_top = 200.0
+offset_top = 234.0
 offset_right = 684.0
-offset_bottom = 304.0
+offset_bottom = 338.0
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
 offset_left = 397.0
-offset_top = 325.0
+offset_top = 391.0
 offset_right = 684.0
-offset_bottom = 429.0
+offset_bottom = 495.0
 text = "Quit"
 
-[node name="Help" type="Button" parent="."]
-offset_left = 397.0
-offset_top = 450.0
-offset_right = 684.0
-offset_bottom = 554.0
-text = "Help"
-
-[node name="Title_Text" type="Label" parent="."]
+[node name="game_over_text" type="Label" parent="."]
 offset_left = 294.0
-offset_top = 80.0
+offset_top = 20.0
 offset_right = 790.0
-offset_bottom = 172.999
+offset_bottom = 113.0
 theme_override_colors/font_color = Color(0.72549, 0, 0.933333, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "Gammi Nammi"
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="."]
+offset_left = 294.0
+offset_top = 150.0
+offset_right = 790.0
+offset_bottom = 243.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="high_score" type="Label" parent="."]
+offset_left = 294.0
+offset_top = 86.0
+offset_right = 790.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "High Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Background" type="ParallaxBackground" parent="."]
-script = ExtResource("2_48n3n")
+script = ExtResource("2_sldqi")
 
 [node name="Sky" type="ParallaxLayer" parent="Background"]
 motion_mirroring = Vector2(1150, 0)
@@ -87,7 +104,7 @@ motion_mirroring = Vector2(1150, 0)
 z_index = -2
 position = Vector2(577.889, 323.5)
 scale = Vector2(0.600926, 0.600926)
-texture = ExtResource("2_oi5so")
+texture = ExtResource("3_tir1p")
 
 [node name="Bird" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2(4, 4)
@@ -122,4 +139,3 @@ flip_h = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Help" to="." method="_on_help_pressed"]
