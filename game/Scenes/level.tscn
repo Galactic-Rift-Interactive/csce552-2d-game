@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://b5g5lsyijb0q5"]
+[gd_scene load_steps=32 format=3 uid="uid://b5g5lsyijb0q5"]
 
 [ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="1_e4s0q"]
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_eu7dw"]
 [ext_resource type="Texture2D" uid="uid://mkc3tntfnae1" path="res://Art/player/idle/1.png" id="1_wei8v"]
 [ext_resource type="Texture2D" uid="uid://dkpnc15jstwab" path="res://Art/player/idle/2.png" id="2_6di35"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_vfx3q"]
@@ -116,6 +117,7 @@ animations = [{
 }]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_eu7dw")
 
 [node name="Background" type="ParallaxBackground" parent="."]
 offset = Vector2(532, 300)
@@ -204,5 +206,9 @@ position = Vector2(1066, 200)
 [node name="ObstacleSpawnTimer" type="Timer" parent="ObstacleSpawner"]
 wait_time = 2.5
 
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ObstacleSpawner/ObstacleSpawnTimer" to="ObstacleSpawner" method="_on_obstacle_spawn_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

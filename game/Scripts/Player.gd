@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal hit 
+signal hit
 
 @export var speed = 500
 @export var jump_strength = 1200
@@ -42,5 +42,4 @@ func _on_area_2d_body_entered(body):
 	# had to add an Area2D as a child with it's own collision.
 	if body.get_name() != "Obstacle":
 		return
-	get_tree().change_scene_to_file("res://Scenes/title.tscn")
-		
+	hit.emit()
