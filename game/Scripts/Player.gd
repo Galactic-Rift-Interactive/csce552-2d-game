@@ -17,6 +17,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump"):
 		if is_on_floor():
 			velocity.y = -jump_strength
+			Audio.play_sound("jump")
 			anim.play("Jump")
 	
 	velocity.x = 0
@@ -44,4 +45,5 @@ func _on_area_2d_body_entered(body):
 	# had to add an Area2D as a child with it's own collision.
 	if body.get_name() != "Obstacle":
 		return
+	Audio.play_sound(body.type)
 	hit.emit()
