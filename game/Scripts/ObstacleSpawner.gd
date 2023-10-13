@@ -13,6 +13,20 @@ enum SpawnLocations {
 func _ready():
 	$ObstacleSpawnTimer.start()
 
+func pause():
+	$ObstacleSpawnTimer.stop()
+	for child in get_children():
+		if child.name == "Obstacle" and child is RigidBody2D:
+			child.linear_velocity = Vector2.ZERO
+			child.get_node("AnimatedSprite2D").stop()
+			
+func resume():
+	$ObstacleSpawnTimer.start()
+	for child in get_children():
+		if child.name == "Obstacle" and child is RigidBody2D:
+			child.linear_velocity = Vector2(-obstacle_speed, 0)
+			child.get_node("AnimatedSprite2D").play()
+
 func _on_obstacle_spawn_timer_timeout():
 	var obstacle = obstacle_scene.instantiate()
 	var obstacle_sprite = obstacle.get_node("AnimatedSprite2D")

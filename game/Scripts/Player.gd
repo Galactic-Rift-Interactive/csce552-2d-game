@@ -6,6 +6,14 @@ signal hit
 @export var jump_strength = 1200
 @export var gravity = 3000
 
+func pause():
+	set_physics_process(false)
+	$AnimatedSprite2D.stop()
+
+func resume():
+	set_physics_process(true)
+	$AnimatedSprite2D.play()
+
 func _ready():
 	pass
 

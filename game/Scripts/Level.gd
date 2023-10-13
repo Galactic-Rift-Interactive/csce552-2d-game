@@ -2,8 +2,17 @@ extends Node2D
 
 var score = 0
 
-
 func _ready():
+	$ScoreTimer.start()
+	
+func pause():
+	$Player.pause()
+	$ObstacleSpawner.pause()
+	$ScoreTimer.stop()
+	
+func resume():
+	$Player.resume()
+	$ObstacleSpawner.resume()
 	$ScoreTimer.start()
 
 func _on_score_timer_timeout():

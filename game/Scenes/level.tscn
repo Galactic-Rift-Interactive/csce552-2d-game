@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b5g5lsyijb0q5"]
+[gd_scene load_steps=33 format=3 uid="uid://b5g5lsyijb0q5"]
 
 [ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="1_e4s0q"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_eu7dw"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bdo6k7vbvaolr" path="res://Art/player/run/2.png" id="18_ebt58"]
 [ext_resource type="Texture2D" uid="uid://bbb2r5jpmlnrw" path="res://Art/player/run/3.png" id="19_832hr"]
 [ext_resource type="Texture2D" uid="uid://bl0qkw8sfvskd" path="res://Art/player/run/4.png" id="20_qntvn"]
-[ext_resource type="Script" path="res://Scenes/PauseMenu.gd" id="23_374u5"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="24_nqqs8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow6s7"]
 size = Vector2(67, 117)
@@ -210,7 +210,7 @@ wait_time = 2.5
 [node name="PauseMenu" type="Node2D" parent="."]
 process_mode = 3
 visible = false
-script = ExtResource("23_374u5")
+script = ExtResource("24_nqqs8")
 
 [node name="Resume" type="Button" parent="PauseMenu"]
 offset_left = 387.0
@@ -237,12 +237,11 @@ text = "PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseMenu/Menu" to="PauseMenu" method="_on_menu_pressed"]
-
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ObstacleSpawner/ObstacleSpawnTimer" to="ObstacleSpawner" method="_on_obstacle_spawn_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Menu" to="PauseMenu" method="_on_menu_pressed"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
