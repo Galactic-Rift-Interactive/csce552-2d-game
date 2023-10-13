@@ -401,6 +401,22 @@ offset_bottom = 49.0
 text = "High Score: 0"
 label_settings = SubResource("LabelSettings_xeenj")
 
+[node name="stopWatch" type="Label" parent="."]
+offset_left = 759.0
+offset_top = 23.0
+offset_right = 823.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "00:00:00"
+
+[node name="StopWatchLabel" type="Label" parent="."]
+offset_left = 714.0
+offset_top = 22.0
+offset_right = 757.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Time:"
+
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ObstacleSpawner/ObstacleSpawnTimer" to="ObstacleSpawner" method="_on_obstacle_spawn_timer_timeout"]
