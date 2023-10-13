@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b5g5lsyijb0q5"]
+[gd_scene load_steps=46 format=3 uid="uid://b5g5lsyijb0q5"]
 
 [ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="1_e4s0q"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_eu7dw"]
@@ -12,7 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://deumj6pjcjrxb" path="res://Art/player/idle/4.png" id="4_44kde"]
 [ext_resource type="Texture2D" uid="uid://qk7pykjp7ol0" path="res://Art/player/idle/5.png" id="5_n2apx"]
 [ext_resource type="Texture2D" uid="uid://dee3e0tb561he" path="res://Art/player/idle/6.png" id="6_uqmpw"]
+[ext_resource type="Texture2D" uid="uid://q6sanuagpn6j" path="res://Art/player/dodge/player_dodge_1.png" id="7_vheec"]
+[ext_resource type="Texture2D" uid="uid://bucm0bk7lhf35" path="res://Art/player/dodge/player_dodge_2.png" id="8_hq7l2"]
+[ext_resource type="Texture2D" uid="uid://30puxiub5q83" path="res://Art/player/dodge/player_dodge_3.png" id="9_yd70b"]
+[ext_resource type="Texture2D" uid="uid://4h6llfn5f0v1" path="res://Art/player/dodge/player_dodge_4.png" id="10_0y1li"]
 [ext_resource type="Script" path="res://Scripts/ObstacleSpawner.gd" id="10_jc5i5"]
+[ext_resource type="Texture2D" uid="uid://b35ne0pn5li8v" path="res://Art/player/dodge/player_dodge_5.png" id="11_6fs5j"]
 [ext_resource type="PackedScene" uid="uid://o8778phqp60m" path="res://Scenes/obstacle.tscn" id="11_cvnrv"]
 [ext_resource type="Texture2D" uid="uid://coioxffk0oghd" path="res://Art/player/jump/1.png" id="12_xids1"]
 [ext_resource type="Texture2D" uid="uid://d2hpckf767pcn" path="res://Art/player/jump/2.png" id="13_7gpcq"]
@@ -27,69 +32,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow6s7"]
 size = Vector2(67, 117)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gjcum"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_wei8v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_6di35")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_rgv1y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_44kde")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_n2apx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_uqmpw")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_xids1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_7gpcq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_ugukm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_gn4ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_op4x5")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_ybvvo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_ebt58")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_832hr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_qntvn")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eb4l"]
 size = Vector2(72, 120)
@@ -191,7 +133,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1]
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"duck"]
 }
 
 [sub_resource type="Animation" id="Animation_ji06l"]
@@ -222,14 +176,126 @@ tracks/1/keys = {
 "values": [&"run"]
 }
 
+[sub_resource type="Animation" id="Animation_gihma"]
+resource_name = "Dodge"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"duck"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jrd37"]
 _data = {
+"Dodge": SubResource("Animation_gihma"),
 "Fall": SubResource("Animation_g0h6q"),
 "Idle": SubResource("Animation_x1t85"),
 "Jump": SubResource("Animation_cvwnq"),
 "RESET": SubResource("Animation_y04gj"),
 "Run": SubResource("Animation_ji06l")
 }
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjcum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vheec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hq7l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yd70b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0y1li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6fs5j")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wei8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6di35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rgv1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_44kde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n2apx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uqmpw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_xids1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7gpcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ugukm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gn4ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_op4x5")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ybvvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ebt58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_832hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qntvn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45ftk"]
 friction = 0.0
@@ -295,12 +361,6 @@ metadata/_edit_group_ = true
 position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_ow6s7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_gjcum")
-animation = &"jump"
-frame = 1
-
 [node name="Area2D" type="Area2D" parent="Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
@@ -311,6 +371,14 @@ shape = SubResource("RectangleShape2D_5eb4l")
 libraries = {
 "": SubResource("AnimationLibrary_jrd37")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(2, 0)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_gjcum")
+animation = &"duck"
+frame = 3
+speed_scale = 2.0
 
 [node name="Borders" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_45ftk")

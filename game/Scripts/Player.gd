@@ -24,10 +24,9 @@ func _physics_process(delta):
 		Audio.play_sound("swoosh")
 			
 	velocity.x = 0
-	if Input.is_action_pressed("duck"):
-		# TODO: Duck animation
-		pass
-	else:
+	if Input.is_action_just_pressed("duck"):
+		anim.play("Dodge")
+	elif !Input.is_action_pressed("duck"):
 		if Input.is_action_pressed("move_right"):
 			velocity.x = speed
 			sprite.flip_h = false
