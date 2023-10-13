@@ -40,14 +40,18 @@ func _on_obstacle_spawn_timer_timeout():
 		var crate_or_spike = randi() % 10
 		if crate_or_spike >= 5:
 			obstacle_sprite.animation = "crate"
+			obstacle.type = "crate"
 		else:
 			obstacle_sprite.animation = "spike"
+			obstacle.type = "spike"
 	elif random_spawner == SpawnLocations.MIDDLE:
 		spawn_location = $MiddleSpawner
 		obstacle_sprite.animation = "bird"
+		obstacle.type = "bird"
 	else:
 		spawn_location = $TopSpawner
 		obstacle_sprite.animation = "bird"
+		obstacle.type = "bird"
 		
 	obstacle_sprite.flip_h = true
 		
