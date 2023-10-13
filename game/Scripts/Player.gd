@@ -20,19 +20,27 @@ func _physics_process(delta):
 			Audio.play_sound("jump")
 			anim.play("Jump")
 	
+	if Input.is_action_just_pressed("duck") || Input.is_action_just_released("duck"):
+		Audio.play_sound("swoosh")
+			
 	velocity.x = 0
-	if Input.is_action_pressed("move_right"):
-		velocity.x = speed
-		sprite.flip_h = false
-		if velocity.y == 0 && is_on_floor():
-			anim.play("Run")
-	elif Input.is_action_pressed("move_left"):
-		velocity.x = -speed
-		sprite.flip_h = true
-		if velocity.y == 0 && is_on_floor():
-			anim.play("Run")
-	elif velocity.y == 0 && is_on_floor():
-		anim.play("Idle")
+	if Input.is_action_pressed("duck"):
+		# TODO: Duck animation
+		pass
+	else:
+		if Input.is_action_pressed("move_right"):
+			velocity.x = speed
+			sprite.flip_h = false
+			if velocity.y == 0 && is_on_floor():
+				anim.play("Run")
+		elif Input.is_action_pressed("move_left"):
+			velocity.x = -speed
+			sprite.flip_h = true
+			if velocity.y == 0 && is_on_floor():
+				anim.play("Run")
+		elif velocity.y == 0 && is_on_floor():
+			anim.play("Idle")
+
 	if velocity.y > 0:
 		anim.play("Fall")
 
