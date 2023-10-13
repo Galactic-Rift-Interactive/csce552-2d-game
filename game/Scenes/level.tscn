@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b5g5lsyijb0q5"]
+[gd_scene load_steps=34 format=3 uid="uid://b5g5lsyijb0q5"]
 
 [ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="1_e4s0q"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_eu7dw"]
@@ -116,6 +116,9 @@ animations = [{
 "name": &"ground",
 "speed": 5.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xeenj"]
+font_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_eu7dw")
@@ -238,6 +241,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 963.0
+offset_top = 22.0
+offset_right = 1024.0
+offset_bottom = 48.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_xeenj")
+
+[node name="HighScoreLabel" type="Label" parent="."]
+offset_left = 840.0
+offset_top = 23.0
+offset_right = 941.0
+offset_bottom = 49.0
+text = "High Score: 0"
+label_settings = SubResource("LabelSettings_xeenj")
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]

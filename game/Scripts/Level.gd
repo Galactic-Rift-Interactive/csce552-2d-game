@@ -4,6 +4,7 @@ var score = 0
 
 func _ready():
 	$ScoreTimer.start()
+	$HighScoreLabel.text = "High Score: " + str(GameManager.get_high_score())
 	
 func pause():
 	$Player.pause()
@@ -17,6 +18,7 @@ func resume():
 
 func _on_score_timer_timeout():
 	score += 1
+	$ScoreLabel.text = "Score: " + str(score)
 
 func _on_player_hit():
 	$ScoreTimer.stop()
