@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bdo6k7vbvaolr" path="res://Art/player/run/2.png" id="18_ebt58"]
 [ext_resource type="Texture2D" uid="uid://bbb2r5jpmlnrw" path="res://Art/player/run/3.png" id="19_832hr"]
 [ext_resource type="Texture2D" uid="uid://bl0qkw8sfvskd" path="res://Art/player/run/4.png" id="20_qntvn"]
+[ext_resource type="Script" path="res://Scenes/PauseMenu.gd" id="23_374u5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow6s7"]
 size = Vector2(67, 117)
@@ -205,6 +206,39 @@ position = Vector2(1066, 200)
 
 [node name="ObstacleSpawnTimer" type="Timer" parent="ObstacleSpawner"]
 wait_time = 2.5
+
+[node name="PauseMenu" type="Node2D" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("23_374u5")
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+offset_left = 387.0
+offset_top = 177.0
+offset_right = 674.0
+offset_bottom = 281.0
+text = "Resume"
+
+[node name="Menu" type="Button" parent="PauseMenu"]
+offset_left = 387.0
+offset_top = 302.0
+offset_right = 674.0
+offset_bottom = 406.0
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="PauseMenu"]
+offset_left = 405.0
+offset_top = 19.0
+offset_right = 659.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PauseMenu/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Menu" to="PauseMenu" method="_on_menu_pressed"]
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
