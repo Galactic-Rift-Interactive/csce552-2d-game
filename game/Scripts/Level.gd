@@ -6,16 +6,6 @@ func _ready():
 	$ScoreTimer.start()
 	$HighScoreLabel.text = "High Score: " + str(GameManager.get_high_score())
 	
-func pause():
-	$Player.pause()
-	$ObstacleSpawner.pause()
-	$ScoreTimer.stop()
-	
-func resume():
-	$Player.resume()
-	$ObstacleSpawner.resume()
-	$ScoreTimer.start()
-
 func _on_score_timer_timeout():
 	score += 1
 	$ScoreLabel.text = "Score: " + str(score)

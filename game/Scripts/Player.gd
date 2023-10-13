@@ -6,41 +6,35 @@ signal hit
 @export var jump_strength = 1200
 @export var gravity = 3000
 
-func pause():
-	set_physics_process(false)
-	$AnimatedSprite2D.stop()
-
-func resume():
-	set_physics_process(true)
-	$AnimatedSprite2D.play()
-
-func _ready():
-	pass
+@onready var anim = get_node("AnimationPlayer")
 
 func _physics_process(delta):
 	var sprite = $AnimatedSprite2D
+	
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	
+	if Input.is_action_pressed("jump"):
+		if is_on_floor():
+			velocity.y = -jump_strength
+			anim.play("Jump")
 	
 	velocity.x = 0
 	if Input.is_action_pressed("move_right"):
 		velocity.x = speed
 		sprite.flip_h = false
-		sprite.animation = "run"
+		if velocity.y == 0 && is_on_floor():
+			anim.play("Run")
 	elif Input.is_action_pressed("move_left"):
 		velocity.x = -speed
 		sprite.flip_h = true
-		sprite.animation = "run"
-		
-	if Input.is_action_pressed("jump"):
-		if is_on_floor():
-			velocity.y = -jump_strength
-			sprite.animation = "jump"
+		if velocity.y == 0 && is_on_floor():
+			anim.play("Run")
+	elif velocity.y == 0 && is_on_floor():
+		anim.play("Idle")
+	if velocity.y > 0:
+		anim.play("Fall")
 
-	if velocity.x == 0 && velocity.y == 0:
-		sprite.animation = "idle"
-
-	sprite.play()
-
-	velocity.y += gravity * delta
 	move_and_slide()
 	
 func _on_area_2d_body_entered(body):

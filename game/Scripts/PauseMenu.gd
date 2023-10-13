@@ -1,27 +1,18 @@
 extends Node2D
 
-var level: Node2D
-var is_paused = false
-
-func _ready():
-	level = get_node("../")
-
 func toggle_pause():
-	if is_paused:
-		hide()
-		level.resume()
-	else:
-		level.pause()
+	get_tree().paused = !get_tree().paused
+	if get_tree().paused:
 		show()
-	is_paused = !is_paused
+	else:
+		hide()
 
 func _input(event):
 	if Input.is_key_pressed(KEY_ESCAPE):
 		toggle_pause()
 
 func _on_resume_pressed():
-	hide()
-	level.resume()
+	toggle_pause()
 
 func _on_menu_pressed():
 	hide()
