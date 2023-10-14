@@ -1,24 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1gunp1oh6jag"]
+[gd_scene load_steps=11 format=3 uid="uid://er66ndd8ya6v"]
 
-[ext_resource type="Script" path="res://Scripts/Title.gd" id="1_d3mvt"]
-[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_48n3n"]
-[ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="2_oi5so"]
-[ext_resource type="Texture2D" uid="uid://bm50jcbk04lp1" path="res://Art/obstacles/bird/Bird_thing_Spritesheet.png" id="4_1051q"]
+[ext_resource type="Script" path="res://Scripts/help.gd" id="1_38tk6"]
+[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_05odf"]
+[ext_resource type="Texture2D" uid="uid://5jbx1l5p3lhn" path="res://Art/background/background.png" id="3_k2obl"]
+[ext_resource type="Texture2D" uid="uid://bm50jcbk04lp1" path="res://Art/obstacles/bird/Bird_thing_Spritesheet.png" id="4_gxdk7"]
+[ext_resource type="Texture2D" uid="uid://mcyo6ibrvbni" path="res://Art/help/Help.png" id="5_lmc41"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n7ch"]
-atlas = ExtResource("4_1051q")
+atlas = ExtResource("4_gxdk7")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck3gw"]
-atlas = ExtResource("4_1051q")
+atlas = ExtResource("4_gxdk7")
 region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjycm"]
-atlas = ExtResource("4_1051q")
+atlas = ExtResource("4_gxdk7")
 region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htykr"]
-atlas = ExtResource("4_1051q")
+atlas = ExtResource("4_gxdk7")
 region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xvwkr"]
@@ -41,44 +42,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Title" type="Node2D"]
-script = ExtResource("1_d3mvt")
+[node name="Help" type="Node2D"]
+script = ExtResource("1_38tk6")
+
+[node name="Menu" type="Button" parent="."]
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 437.0
+offset_bottom = 154.0
+text = "Menu"
 
 [node name="Play" type="Button" parent="."]
-offset_left = 397.0
-offset_top = 200.0
-offset_right = 684.0
-offset_bottom = 304.0
+offset_left = 670.0
+offset_top = 50.0
+offset_right = 957.0
+offset_bottom = 154.0
 text = "Play"
 
-[node name="Quit" type="Button" parent="."]
-offset_left = 397.0
-offset_top = 325.0
-offset_right = 684.0
-offset_bottom = 429.0
-text = "Quit"
-
-[node name="Help" type="Button" parent="."]
-offset_left = 397.0
-offset_top = 450.0
-offset_right = 684.0
-offset_bottom = 554.0
-text = "Help"
-
-[node name="Title_Text" type="Label" parent="."]
-offset_left = 294.0
-offset_top = 80.0
-offset_right = 790.0
-offset_bottom = 172.999
-theme_override_colors/font_color = Color(0.72549, 0, 0.933333, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "Gammi Nammi"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Background" type="ParallaxBackground" parent="."]
-script = ExtResource("2_48n3n")
+script = ExtResource("2_05odf")
 
 [node name="Sky" type="ParallaxLayer" parent="Background"]
 motion_mirroring = Vector2(1150, 0)
@@ -87,7 +69,7 @@ motion_mirroring = Vector2(1150, 0)
 z_index = -2
 position = Vector2(577.889, 323.5)
 scale = Vector2(0.600926, 0.600926)
-texture = ExtResource("2_oi5so")
+texture = ExtResource("3_k2obl")
 
 [node name="Bird" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2(4, 4)
@@ -120,6 +102,9 @@ autoplay = "Fly"
 speed_scale = 1.3
 flip_h = true
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(557, 390)
+texture = ExtResource("5_lmc41")
+
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Help" to="." method="_on_help_pressed"]

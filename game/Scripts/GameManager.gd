@@ -2,6 +2,8 @@ extends Node
 
 const DATAFILE = "user://gamedata.dat"
 
+@export var score = 0
+
 var data = {
 	"high_score": 0,
 }
@@ -25,5 +27,5 @@ func load_data():
 func get_high_score():
 	return data.high_score
 	
-func set_high_score(score):
+func set_high_score():
 	data.high_score = score
